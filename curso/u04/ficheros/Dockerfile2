@@ -1,2 +1,5 @@
+# Docker image with apache 2 directly without installing any OS
 FROM httpd:2.4
 COPY ./public_html /usr/local/apache2/htdocs/
+
+

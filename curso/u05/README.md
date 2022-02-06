@@ -18,7 +18,15 @@
 Vamos a crear un contenedor con mysql donde guardamos la información de la base de datos en un volumen persistente:
 
     $ docker run --name some-mysql -v /opt/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=asdasd -d mysql
-
+* Possible problems
+  * Problem1: 
+    * Error response from daemon: Mounts denied: The path /opt/mysql is not shared from the host and is not known to Docker.
+    * Solution:
+      * Choose another HostDirectory. Docker has got some preferences depending on the OS
+  * Problem2:
+    * Mounting the volume. Operation not permitted
+    * Solution:
+      * Add the folders and files allowed by docker in "the preference and system" to the ones to set up a volume
 Comprobamos que se ha guardado la base de datos en el host:
 
     /opt/mysql$ ls
